@@ -12,7 +12,7 @@ user has many payees
 payees have many points 
 payees have many users through points
 
-users>-----points----------------<payees
+users>-----jointable----------------<payees
 name        integer                 name
             t.references payee
             t.refences user
