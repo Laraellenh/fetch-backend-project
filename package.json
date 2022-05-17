@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "fetch-no-cors": "^1.0.13"
+  }
+}

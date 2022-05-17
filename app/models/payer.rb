@@ -1,4 +1,4 @@
-class Payee < ApplicationRecord
+class Payer < ApplicationRecord
     has_many :transactions 
     has_many :users, through: :transactions
 

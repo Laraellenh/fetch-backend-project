@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :transactions
-  resources :payees
+  resources :payers
   resources :users
+  # get '/points', to: 'transactions#payer_point_balances'
+  get '/subtract', to: 'transactions#payer_point_balances'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
