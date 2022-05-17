@@ -1,5 +1,6 @@
 class Payee < ApplicationRecord
-    has_many :points 
-    has_many :users, through: points
-    
+    has_many :transactions 
+    has_many :users, through: :transactions
+
+
 end

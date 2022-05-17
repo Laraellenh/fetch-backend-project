@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_16_231659) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_17_004009) do
   create_table "payees", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "points", force: :cascade do |t|
-    t.integer "user_id", null: false
+  create_table "transactions", force: :cascade do |t|
     t.integer "payee_id", null: false
+    t.integer "user_id", null: false
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["payee_id"], name: "index_points_on_payee_id"
-    t.index ["user_id"], name: "index_points_on_user_id"
+    t.index ["payee_id"], name: "index_transactions_on_payee_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,6 +33,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_231659) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "points", "payees"
-  add_foreign_key "points", "users"
+  add_foreign_key "transactions", "payees"
+  add_foreign_key "transactions", "users"
 end
