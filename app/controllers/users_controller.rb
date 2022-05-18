@@ -16,20 +16,18 @@ class UsersController < ApplicationController
         render json: User.create!(:name, :points)
     end
     def balance 
-       render json: current_balance= User.find(params[:id]).transactions.pluck(:points).sum
+        render json: User.find(params[:id]).transactions.pluck(:points).sum
     end
     def spending ( pointsspent)
         # find user
-        user = User.find(params[:id])
-        include: :transactions
-        pointsspent = user.transactions.points
-        @balance - pointsspent = @balance
-        render json: user, balance
-        
-        # subtract the amount from a transaction, take from oldest points first, return new setBalance
-        
+        @user = User.find(params[:id])
+        @balance = user.transactions.all.pluck(:points).sum
+        @pointsspent = user.transactions.last.points
+        @new_total = @balance - @pointsspent
+        @usefirst user.transactions.all.order(created_at: :desc)
+        render json: @new_total   
+
     end
-    
     private
 
 end
