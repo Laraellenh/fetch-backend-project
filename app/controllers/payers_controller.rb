@@ -8,7 +8,7 @@ class PayersController < ApplicationController
         render json: payer, status: :ok
     end
     def create 
-        Payer.create!(payer_params), status: :created
+       render json: Payer.create!(payer_params), status: :created
     end
     def destroy
         Payer.find(params[:username]).delete

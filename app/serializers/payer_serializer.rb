@@ -1,3 +1,3 @@
 class PayerSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :name, :points, :created_at
 end

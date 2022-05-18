@@ -4,8 +4,6 @@ class CreateTransactions < ActiveRecord::Migration[7.0]
       t.belongs_to :payer, null: false, foreign_key: true
       t.belongs_to :user, null: false, foreign_key: true
       t.integer :points
-    
-
       t.timestamps
     end
   end

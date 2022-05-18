@@ -1,2 +1,2 @@
-module PayersHelper
+module PayerHelper
 end
