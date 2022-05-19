@@ -1,12 +1,15 @@
 class TransactionsController < ApplicationController
-
+    # {} = {Transaction.payer.name, Transaction.points, Transaction.created_at}
     def index 
-    render json:  Transaction.all, except: :updated_at, status: :ok
+    render json:  Transaction.all, except: [:updated_at, :id], status: :ok
     end
     
     def  show
-        trans = Transaction.find(params[:id])
-        render json: trans
+        t = Transaction.find(params[:id])
+        # transaction.payer.name
+        render json:   t, except: [:updated_at, :id]
+        #  
+        # include: [payer: {only:[:name]}], status: :ok
     end
     def create
         render json: Transaction.create!(trans_params), status: :created

@@ -1,3 +1,5 @@
 class PayerSerializer < ActiveModel::Serializer
-  attributes :name, :points, :created_at
+  attributes :name, :points
+
+  has_many :transactions
 end

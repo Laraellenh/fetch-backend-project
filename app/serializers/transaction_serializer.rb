@@ -1,6 +1,5 @@
 class TransactionSerializer < ActiveModel::Serializer
-  attributes :points, :user_id, :payee_id, :timestamp
+  attributes :points, :user.name, :payee.name, :created_at
 
-  belongs_to :user
-  belongs_to :payee
+
 end
