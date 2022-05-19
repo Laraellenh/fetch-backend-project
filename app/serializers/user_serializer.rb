@@ -1,7 +1,8 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :name, :points
 
-  def transactions
+  has_many :transactions
+  def points
      self.object.transactions.points
   end
  
