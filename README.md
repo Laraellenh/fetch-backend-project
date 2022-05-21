@@ -12,8 +12,11 @@ this will give you some intial seed data so you have a few payers, users, and tr
 To create transactions (and/or users/payers), you may either use Postman or another fetch program, or you can create transactions (and users/payers) in the rails console. To enter rails console, open a new terminal in your directory and type command `rails c`
 to create a new transaction in rails console:
 Transaction.create!(payer__id: _, user_id: _, points: -) 
-please note the ! in the above command will throw an error if you did not enter the appropriate fields or if something is invalid
-Use the pay and user id's (you can check these in the seed data or by typing commands into the rails console, for example if you type `User.first.` you will see the User's id, or if you type User.all you can see all users and select the id.
+Use the payer and user ids (you can check these in the seed data or by typing commands into the rails console, for example if you type `User.first` you will see the User's id, or if you type User.all you can see all users and select the id, whenm querying the database or creating a transaction.
+Please note the ! in the above command will throw an error if you did not enter the appropriate fields or if something is invalid and each key needs a value, so you'd input the payer_id and user_id by number as well as point value as an integer.
+To create a user in the rails console you type command `User.create!(name: "")` where name is the user's name is a string value inside "".
+To create a payer `User.create!(name: "name")
+
 
 your routes:
 localhost:3000/users/:id will give you the specified user acccount in the specified format for example, if you want to see the first user's account you would go to http://localhost:3000/users/1
