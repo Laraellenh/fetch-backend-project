@@ -1,7 +1,7 @@
 class PayersController < ApplicationController
   
     def index
-        render json: Payer.all
+        render json: Payer.all.total_balance
     end
     # specific payers point balances
     def show 

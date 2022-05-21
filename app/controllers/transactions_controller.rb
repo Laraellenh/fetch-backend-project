@@ -1,22 +1,23 @@
 class TransactionsController < ApplicationController
-
-    def index 
-    render json:  Transaction.all, except: [:updated_at, :id], status: :ok
+# the spend points route
+    def spend 
+        render json:  Transaction.all.points_call,
+        status: :ok
     end
-    # transaction for a specific payer
-    def  show
-        t = Transaction.find(params[:id])
-        # transaction.payer.name
-        render json:  t.payername, except: [ :updated_at]
+    def index
+        t = Transaction.all
+        render json:  t.all_payers, except: [ :updated_at]
 
-        #  
+    end
+    def show
+       render json: Transaction.find(params[:id])
     end
     def create
         render json: Transaction.create!(trans_params), status: :created
     end
     # def pointspend
     #     t = Transaction.find(params[:id])
-    #     render json: t, only:points, :created_at, includes:  ['payers, payers.name'], status: :ok
+    #     render json: t.points_call
     # end
     private
     def trans_params
